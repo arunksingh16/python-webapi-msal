@@ -11,6 +11,11 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 # using route decorator we will inform flask what url should trigger the function
+@app.route('/name', methods=['GET','POST'])
+def welcome():
+    return "Hello Python", 200
+
+
 @app.route('/name/<string:name>/', methods=['GET','POST'])
 def welcome(name):
     return "Hello " + name, 200
