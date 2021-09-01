@@ -11,10 +11,9 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 
 # using route decorator we will inform flask what url should trigger the function
-@app.route('/name', methods=['GET','POST'])
-def welcome():
+@app.route('/', methods=['GET','POST'])
+def index_page():
     return "Hello Python", 200
-
 
 @app.route('/name/<string:name>/', methods=['GET','POST'])
 def welcome(name):
@@ -32,6 +31,6 @@ def print_num():
 
 # the special variable which takes the value of script name. It ensures that our flask app runs only when
 # it is executed in the main file
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+#if __name__ == "__main__":
+#    app.run(host="0.0.0.0", port=80, debug=True)
 
